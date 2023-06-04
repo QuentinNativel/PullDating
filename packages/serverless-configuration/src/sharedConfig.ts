@@ -44,16 +44,19 @@ export const sharedProviderConfig: ServerlessProviderConfig = {
  */
 export const sharedParams = {
   dev: {
-    profile: 'pull-dating-developer',
+    profile: 'sandbox',
     apiGatewayCorsAllowedOrigins: ['http://localhost:3000'],
+    projId: '64710c0a601ef83732259f22',
   },
   staging: {
     profile: '',
     apiGatewayCorsAllowedOrigins: ['https://staging.my-domain.com'],
+    projId: undefined,
   },
   production: {
     profile: '',
     apiGatewayCorsAllowedOrigins: ['https://www.my-domain.com'],
+    projId: undefined,
   },
 };
 
