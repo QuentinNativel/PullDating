@@ -9,7 +9,7 @@
       "path": "./services/core/tsconfig.json"
     },
     {
-      "path": "./services/core/tsconfig.json"
+      "path": "./packages/core-contracts/tsconfig.build.json"
     }
   ]
 }

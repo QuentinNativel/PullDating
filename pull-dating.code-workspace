@@ -44,7 +44,7 @@
     "[html][javascript][json]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.tsdk": "pull-dating root/node_modules/typescript/lib",
     "vitest.commandLine": "pnpm vitest",
     "vitest.disabledWorkspaceFolders": [
       "pull-dating root"
@@ -83,6 +83,10 @@
     {
       "path": "services/core",
       "name": "core [service]"
+    },
+    {
+      "path": "packages/core-contracts",
+      "name": "core contracts [library]"
     }
   ]
 }
