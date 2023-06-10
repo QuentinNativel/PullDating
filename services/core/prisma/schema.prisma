@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String                     @id
+  name         String                  @db.VarChar(50)
+  birthDate    DateTime
+  gender       Gender
+  imageUrls    String[]
+  biography    String
+  datingGoal   DatingGoal
+  lastLocation Unsupported("geometry(Point, 4326)")
+  createdAt    DateTime                @default(now())
+  updatedAt    DateTime                @updatedAt
+
+  @@index([lastLocation], map: "lastLocation_idx", type: Gist)
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum DatingGoal {
+  FRIENDSHIP
+  RELATIONSHIP
+  BOTH
+}
