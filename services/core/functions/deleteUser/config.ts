@@ -6,12 +6,11 @@ import { Construct } from 'constructs';
 
 import { sharedCdkEsbuildConfig } from '@pull-dating/serverless-configuration';
 
+import { deleteUserContract } from 'contracts/deleteUserContract';
 import { ApiWithCognitoAuthorizerProps } from 'functions/types';
 
-import { healthContract } from '../../contracts/healthContract';
-
-export class Health extends Construct {
-  public healthFunction: NodejsFunction;
+export class DeleteUser extends Construct {
+  public deleteUserFunction: NodejsFunction;
 
   constructor(
     scope: Construct,
@@ -20,7 +19,7 @@ export class Health extends Construct {
   ) {
     super(scope, id);
 
-    this.healthFunction = new NodejsFunction(this, 'Lambda', {
+    this.deleteUserFunction = new NodejsFunction(this, 'Lambda', {
       entry: getCdkHandlerPath(__dirname),
       handler: 'main',
       runtime: Runtime.NODEJS_16_X,
@@ -30,10 +29,10 @@ export class Health extends Construct {
     });
 
     restApi.root
-      .resourceForPath(healthContract.path)
+      .resourceForPath(deleteUserContract.path)
       .addMethod(
-        healthContract.method,
-        new LambdaIntegration(this.healthFunction),
+        deleteUserContract.method,
+        new LambdaIntegration(this.deleteUserFunction),
         { authorizer },
       );
   }

@@ -10,6 +10,6 @@
       "path": "../../packages/serverless-configuration/tsconfig.build.json"
     }
   ],
-  "exclude": ["./cdk.out"],
+  "exclude": ["./cdk.out", "dist", "prisma", "tests"],
   "include": ["./**/*.ts"]
 }

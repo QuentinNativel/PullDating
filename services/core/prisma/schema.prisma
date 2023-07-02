@@ -13,13 +13,14 @@ model User {
   birthDate    DateTime
   gender       Gender
   imageUrls    String[]
-  biography    String
-  datingGoal   DatingGoal
-  lastLocation Unsupported("geometry(Point, 4326)")
+  biography    String?
+  datingGoal   DatingGoal?
+  lastLocation Unsupported("geometry(Point, 4326)")?
+  lastSeen DateTime?
   createdAt    DateTime                @default(now())
   updatedAt    DateTime                @updatedAt
 
-  @@index([lastLocation], map: "lastLocation_idx", type: Gist)
+  @@index([lastLocation], name: "lastLocation_idx", type: Gist)
 }
 
 enum Gender {

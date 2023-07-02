@@ -30,7 +30,8 @@
     "@swarmion/serverless-contracts": "^0.28.2",
     "@swarmion/serverless-helpers": "^0.28.2",
     "ajv": "^8.12.0",
-    "awscdk-resources-mongodbatlas": "^1.0.1"
+    "json-schema-to-ts": "^2.9.1",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@types/node": "^20.2.4",
